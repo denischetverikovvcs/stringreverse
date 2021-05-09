@@ -2,6 +2,12 @@ package stringreverse;
 
 import java.util.Scanner;
 
+@SuppressWarnings("serial")
+
+class EmptyStringException extends Exception{
+	
+}
+
 public class main {
 
 	public static void main(String[] args) {
@@ -9,8 +15,12 @@ public class main {
 
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Vvedite neskolko posledovatelnotei simvolov annagrammy i nazhmite 'Enter'");
-		String strofsymbols=scanner.nextLine();
 		
+		
+		try { String strofsymbols=scanner.nextLine();
+		if(strofsymbols.isEmpty()) {
+			throw new EmptyStringException();
+		}
 		
 // strofsymbols="a1bsd efg!h";
 		
@@ -26,10 +36,16 @@ public class main {
 
 
 		
-	}
-		
+	
+		}
+		}
+		catch (EmptyStringException e) {
+			System.out.println("??? Vy nichego ne vveli");
+		}
 	}
 }
+
+		
 		
 		
 		
